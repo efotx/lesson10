@@ -1,4 +1,4 @@
-
+#include "string_smooze.h"
 
 //сжимание строки в новую строку
 std::string smooze_copy(std::string s)
@@ -40,17 +40,14 @@ void smooze(std::string &s)
         }
         if (counter > 1)
         {
-            //не придумал лучшего решения для добавления числа
-            //только такой вот костыль
             std::string strCounter = std::to_string(counter);
             auto counterIt = strCounter.begin();
-            while (*counterIt != '\0')
+            while (counterIt != strCounter.end())
             {
                 *src++ = *counterIt++;
             }
         }
         //std::cout << s << std::endl;
     }
-    *src = '\0';
     s.resize(std::distance(s.begin(), src));
 }

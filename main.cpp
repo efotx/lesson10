@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <queue>
-#include <string_smooze.cpp>
+#include "string_smooze.h"
 
 int main()
 {
-    std::ifstream fin("C:\\Users\\Dmitriy\\Documents\\9\\strings.txt");
+    std::ifstream fin("strings.txt");
     if (!fin.is_open()) return 1;
     std::queue<std::string> lines; //очередь для хранения k строк
     std::string str; //хранит считанную строку
@@ -21,8 +21,8 @@ int main()
     }
     fin.close();
     //вывод строк
-    std::ofstream out("C:\\Users\\Dmitriy\\Documents\\9\\out.txt");
-    while (lines.size() != 0)
+    std::ofstream out("out.txt");
+    while (!lines.empty())
     {
         out << lines.front() << std::endl;
         lines.pop();
